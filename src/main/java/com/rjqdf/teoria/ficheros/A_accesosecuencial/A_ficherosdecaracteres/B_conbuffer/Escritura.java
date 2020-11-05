@@ -11,7 +11,7 @@ public class Escritura {
 
         try {
 
-            File file = new File("output.txt");
+            File file = new File(".\\output\\output-BufferedWriter.txt");
             FileWriter fileWriter = new FileWriter(file);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             //BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));

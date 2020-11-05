@@ -12,17 +12,17 @@ public class Lectura {
 
         try {
 
-            File file = new File("input.txt");
+            File file = new File(".\\input\\input.txt");
             FileReader fileReader = new FileReader(file);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             //BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
 
-            String message = bufferedReader.readLine();
+            String readMessage = bufferedReader.readLine();
 
             bufferedReader.close();
             fileReader.close();
 
-            System.out.println(message);
+            System.out.println(readMessage);
 
         } catch (FileNotFoundException e) {
 

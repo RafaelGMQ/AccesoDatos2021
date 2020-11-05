@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.math.BigInteger;
 
 public class Ejercicio1 {
 
@@ -22,6 +23,7 @@ public class Ejercicio1 {
 //        apartado10();
 //        apartado11();
 //        apartado12();
+//        apartado12Library();
         apartado13();
     }
 
@@ -29,20 +31,19 @@ public class Ejercicio1 {
 
         try {
 
-            File file = new File("entrada.txt");
+            File file = new File(".\\input\\entrada.txt");
             FileReader fileReader = new FileReader(file);
 
             int i;
-            String message = "";
+            StringBuilder readMessage = new StringBuilder();
             while ((i = fileReader.read()) != -1) {
 
-                message += (char) i;
-
+                readMessage.append((char) i);
             }
 
             fileReader.close();
 
-            System.out.println(message);
+            System.out.println(readMessage);
 
         } catch (FileNotFoundException e) {
 
@@ -58,20 +59,19 @@ public class Ejercicio1 {
 
         try {
 
-            File file = new File("entrada.txt");
+            File file = new File(".\\input\\entrada.txt");
             FileReader fileReader = new FileReader(file);
 
             int i;
-            String message = "";
+            StringBuilder readMessage = new StringBuilder();
             while ((i = fileReader.read()) != -1) {
 
-                message += (char) i;
-
+                readMessage.append((char) i);
             }
 
             fileReader.close();
 
-            System.out.println(message.length());
+            System.out.println("El fichero adjunto contiene " + readMessage.length() + " caracteres");
 
         } catch (FileNotFoundException e) {
 
@@ -85,33 +85,32 @@ public class Ejercicio1 {
 
     public static void apartado5() {
 
-        char aTilde = 'á';
-        char eTilde = 'é';
-        char iTilde = 'í';
-        char oTilde = 'ó';
-        char uTilde = 'ú';
+        char aTilde = '\u00E1'; // UTF-8: á = U+00E1
+        char eTilde = '\u00E9'; // UTF-8: é = U+00E9
+        char iTilde = '\u00ED'; // UTF-8: í = U+00ED
+        char oTilde = '\u00F3'; // UTF-8: ó = U+00F3
+        char uTilde = '\u00FA'; // UTF-8: ú = U+00FA
 
         try {
 
-            File file = new File("entrada.txt");
+            File file = new File(".\\input\\entrada.txt");
             FileReader fileReader = new FileReader(file);
 
             int i;
-            String message = "";
+            StringBuilder readMessage = new StringBuilder();
             while ((i = fileReader.read()) != -1) {
 
                 char readChar = (char) i;
 
                 if (readChar == aTilde || readChar == eTilde || readChar == iTilde || readChar == oTilde || readChar == uTilde) {
 
-                    message += readChar;
+                    readMessage.append(readChar);
                 }
-
             }
 
             fileReader.close();
 
-            System.out.println(message.length());
+            System.out.println("El fichero adjunto contiene " + readMessage.length() + " caracteres con tilde");
 
         } catch (FileNotFoundException e) {
 
@@ -127,23 +126,22 @@ public class Ejercicio1 {
 
         try {
 
-            File file = new File("entrada.txt");
+            File file = new File(".\\input\\entrada.txt");
             FileReader fileReader = new FileReader(file);
 
             int i;
-            String message = "";
+            StringBuilder readMessage = new StringBuilder();
             while ((i = fileReader.read()) != -1) {
 
                 if (i >= 65 && i <= 90) {
 
-                    message += (char) i;
+                    readMessage.append((char) i);
                 }
-
             }
 
             fileReader.close();
 
-            System.out.println(message.length());
+            System.out.println("El fichero adjunto contiene " + readMessage.length() + " caracteres en mayúscula");
 
         } catch (FileNotFoundException e) {
 
@@ -159,19 +157,19 @@ public class Ejercicio1 {
 
         try {
 
-            File file = new File("entrada.txt");
+            File file = new File(".\\input\\entrada.txt");
             FileReader fileReader = new FileReader(file);
 
             int i;
-            String message = "";
+            StringBuilder readMessage = new StringBuilder();
             while ((i = fileReader.read()) != -1) {
 
-                message += (char) i;
+                readMessage.append((char) i);
             }
 
             fileReader.close();
 
-            String[] words = message.split(" ");
+            String[] words = readMessage.toString().split(" ");
             int numberOfWords = 0;
             for (int j = 0; j < words.length; j++) {
 
@@ -183,7 +181,7 @@ public class Ejercicio1 {
                 }
             }
 
-            System.out.println(numberOfWords);
+            System.out.println("El fichero adjunto contiene " + numberOfWords + " palabras");
 
         } catch (FileNotFoundException e) {
 
@@ -199,41 +197,22 @@ public class Ejercicio1 {
 
         try {
 
-            File file = new File("fibonacci.txt");
+            File file = new File(".\\output\\fibonacci.txt");
             FileWriter fileWriter = new FileWriter(file);
 
+            BigInteger numberA = new BigInteger("0");
+            BigInteger numberB = new BigInteger("1");
+            BigInteger addition = new BigInteger("1");
 
+            for (int i = 1; i <= 1000; i++) {
 
+                fileWriter.write(addition.toString());
+                fileWriter.write("\r\n");
 
-            double[] arrayFibonacci = new double[1000];
-
-            double numeroA = 1;
-            double numeroB = 1;
-
-            arrayFibonacci[0] = numeroA;
-            arrayFibonacci[1] = numeroB;
-
-
-            for (int i = 2; i < arrayFibonacci.length; i++) {
-
-                arrayFibonacci[i] = numeroA + numeroB;
-
-                numeroA = numeroB;
-
-                numeroB = arrayFibonacci[i];
-            }
-
-            System.out.print('[');
-
-            for(int i = 0; i < arrayFibonacci.length; i++) {
-
-                fileWriter.write(arrayFibonacci[i] + "\r\n");
-
-//                if( i != (arrayFibonacci.length - 1)) {
-//                    System.out.print(i + ": " + arrayFibonacci[i] + ", ");
-//                } else {
-//                    System.out.print(i + ": " + arrayFibonacci[i] + ']');
-//                }
+                // Update values
+                addition = numberA.add(numberB);
+                numberA = numberB;
+                numberB = addition;
             }
 
             fileWriter.close();
@@ -248,23 +227,22 @@ public class Ejercicio1 {
 
         try {
 
-            File inputFile = new File("entrada.txt");
+            File inputFile = new File(".\\input\\entrada.txt");
             FileReader fileReader = new FileReader(inputFile);
 
             int i;
-            String message = "";
+            StringBuilder readMessage = new StringBuilder();
             while ((i = fileReader.read()) != -1) {
 
-                message += (char) i;
-
+                readMessage.append((char) i);
             }
 
             fileReader.close();
 
-            File outputFile = new File("salida.txt");
+            File outputFile = new File(".\\output\\salida.txt");
             FileWriter fileWriter = new FileWriter(outputFile);
 
-            fileWriter.write(message);
+            fileWriter.write(readMessage.toString());
 
             fileWriter.close();
 
@@ -282,29 +260,24 @@ public class Ejercicio1 {
 
         try {
 
-            File inputFile = new File("entrada.txt");
+            File inputFile = new File(".\\input\\entrada.txt");
             FileReader fileReader = new FileReader(inputFile);
 
             int i;
-            String message = "";
+            StringBuilder readMessage = new StringBuilder();
             while ((i = fileReader.read()) != -1) {
 
-                message += (char) i;
-
+                readMessage.append((char) i);
             }
 
             fileReader.close();
 
-            String invertedMessage = "";
-            for (int j = message.length()-1; j >= 0; j--){
-
-                invertedMessage += message.charAt(j);
-            }
-
-            File outputFile = new File("salidaInvertida.txt");
+            File outputFile = new File(".\\output\\salidaInvertida.txt");
             FileWriter fileWriter = new FileWriter(outputFile);
 
-            fileWriter.write(invertedMessage);
+            StringBuilder reverseMessage = new StringBuilder(readMessage).reverse();
+
+            fileWriter.write(reverseMessage.toString());
 
             fileWriter.close();
 
@@ -322,31 +295,31 @@ public class Ejercicio1 {
 
         try {
 
-            File inputFile = new File("entrada.txt");
+            File inputFile = new File(".\\input\\entrada.txt");
             FileReader fileReader = new FileReader(inputFile);
 
             int i;
-            String message = "";
+            StringBuilder readMessage = new StringBuilder();
             while ((i = fileReader.read()) != -1) {
 
                 char readChar = (char) i;
 
                 if (readChar == 'e') {
 
-                    message += Character.toUpperCase(readChar);
+                    readMessage.append('E');
 
                 } else {
 
-                    message += (char) i;
+                    readMessage.append(readChar);
                 }
             }
 
             fileReader.close();
 
-            File outputFile = new File("salidaLetraSustituida.txt");
+            File outputFile = new File(".\\output\\salidaLetraSustituida.txt");
             FileWriter fileWriter = new FileWriter(outputFile);
 
-            fileWriter.write(message);
+            fileWriter.write(readMessage.toString());
 
             fileWriter.close();
 
@@ -364,23 +337,69 @@ public class Ejercicio1 {
 
         try {
 
-            File inputFile = new File("entrada.txt");
+            File inputFile = new File(".\\input\\entrada.txt");
             FileReader fileReader = new FileReader(inputFile);
 
             int i;
-            String message = "";
+            StringBuilder readMessage = new StringBuilder();
             while ((i = fileReader.read()) != -1) {
 
-                message += (char) i;
-
+                readMessage.append((char) i);
             }
 
             fileReader.close();
 
-            File outputFile = new File("salidaMayusculas.txt");
+            String[] words = readMessage.toString().split(" ");
+
+            StringBuilder readMessageUppercase = new StringBuilder();
+            for (int j = 0; j < words.length; j++) {
+
+                if (words[j].length() > 0) {
+
+                    // Uppercase first letter of each word
+                    readMessageUppercase.append(words[j].substring(0, 1).toUpperCase());
+                    readMessageUppercase.append(words[j].substring(1));
+                }
+                readMessageUppercase.append(" ");
+            }
+
+            File outputFile = new File(".\\output\\salidaMayusculas.txt");
             FileWriter fileWriter = new FileWriter(outputFile);
 
-            fileWriter.write(WordUtils.capitalize(message));
+            fileWriter.write(readMessageUppercase.toString());
+
+            fileWriter.close();
+
+        } catch (FileNotFoundException e) {
+
+            e.printStackTrace();
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+        }
+    }
+
+    public static void apartado12Library() {
+
+        try {
+
+            File inputFile = new File(".\\input\\entrada.txt");
+            FileReader fileReader = new FileReader(inputFile);
+
+            int i;
+            StringBuilder readMessage = new StringBuilder();
+            while ((i = fileReader.read()) != -1) {
+
+                readMessage.append((char) i);
+            }
+
+            fileReader.close();
+
+            File outputFile = new File(".\\output\\salidaMayusculas.txt");
+            FileWriter fileWriter = new FileWriter(outputFile);
+
+            fileWriter.write(WordUtils.capitalize(readMessage.toString()));
 
             fileWriter.close();
 
@@ -398,11 +417,11 @@ public class Ejercicio1 {
 
         try {
 
-            File inputFile = new File("entrada.txt");
+            File inputFile = new File(".\\input\\entrada.txt");
             FileReader fileReader = new FileReader(inputFile);
 
             int i;
-            String message = "";
+            StringBuilder readMessage = new StringBuilder();
             while ((i = fileReader.read()) != -1) {
 
                 char readChar = (char) i;
@@ -412,16 +431,16 @@ public class Ejercicio1 {
                         && readChar != 'á' && readChar != 'é' && readChar != 'í' && readChar != 'ó' && readChar != 'ú'
                         && readChar != 'Á' && readChar != 'É' && readChar != 'Í' && readChar != 'Ó' && readChar != 'Ú') {
 
-                    message += (char) i;
+                    readMessage.append(readChar);
                 }
             }
 
             fileReader.close();
 
-            File outputFile = new File("salidaSinVocales.txt");
+            File outputFile = new File(".\\output\\salidaSinVocales.txt");
             FileWriter fileWriter = new FileWriter(outputFile);
 
-            fileWriter.write(message);
+            fileWriter.write(readMessage.toString());
 
             fileWriter.close();
 

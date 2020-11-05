@@ -10,7 +10,7 @@ public class Escritura {
 
         try {
 
-            File file = new File("output.txt");
+            File file = new File(".\\output\\output-FileWriter.txt");
             FileWriter fileWriter = new FileWriter(file);
 
             String messageToWrite = "En un lugar de la Mancha...";

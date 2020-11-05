@@ -11,20 +11,19 @@ public class Lectura {
 
         try {
 
-            File file = new File("input.txt");
+            File file = new File(".\\input\\input.txt");
             FileReader fileReader = new FileReader(file);
 
             int i;
-            String message = "";
+            StringBuilder readMessage = new StringBuilder();
             while ((i = fileReader.read()) != -1) {
 
-                message += (char) i;
-
+                readMessage.append((char) i);
             }
 
             fileReader.close();
 
-            System.out.println(message);
+            System.out.println(readMessage);
 
         } catch (FileNotFoundException e) {
 
