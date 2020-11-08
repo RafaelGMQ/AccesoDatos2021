@@ -20,7 +20,6 @@ public class Lectura {
             String readMessage = bufferedReader.readLine();
 
             bufferedReader.close();
-            fileReader.close();
 
             System.out.println(readMessage);
 

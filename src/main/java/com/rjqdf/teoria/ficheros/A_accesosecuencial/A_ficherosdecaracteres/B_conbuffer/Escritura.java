@@ -21,7 +21,6 @@ public class Escritura {
             bufferedWriter.write(messageToWrite);
 
             bufferedWriter.close();
-            fileWriter.close();
 
         } catch (IOException e) {
 
