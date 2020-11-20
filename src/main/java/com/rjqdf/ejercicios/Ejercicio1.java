@@ -24,7 +24,8 @@ public class Ejercicio1 {
 //        apartado11();
 //        apartado12();
 //        apartado12Library();
-        apartado13();
+//        apartado13();
+        apartado14();
     }
 
     public static void apartado3() {
@@ -452,5 +453,67 @@ public class Ejercicio1 {
 
             e.printStackTrace();
         }
+    }
+
+    public static void apartado14() {
+
+        try {
+
+            File inputFile = new File(".\\input\\entrada.txt");
+            FileReader fileReader = new FileReader(inputFile);
+
+            String message;
+            while ((message = readParagraph(fileReader)) != null){
+                System.out.println(message);
+            }
+
+        } catch (FileNotFoundException e) {
+
+            e.printStackTrace();
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+        }
+    }
+
+    public static String readParagraph(FileReader fileReader) throws IOException {
+
+        boolean iterate = true;
+        boolean exit = false;
+        StringBuilder readMessage = new StringBuilder();
+
+        do {
+
+            int readInt = fileReader.read();
+
+            if ( readInt == (int) '\r' ) {
+
+                // Do nothing because new-line-characters has not to be added.
+                // In addition, if a '\r' character is found, the loop has to continue
+                // iterating because next character has to be '\n'.
+
+            } else if ( readInt == (int) '\n' || readInt == -1 ) {
+
+                iterate = false;
+
+                if (readInt == -1) {
+
+                    exit = true;
+                }
+
+            } else {
+
+                readMessage.append((char) readInt);
+            }
+
+        } while (iterate);
+
+        if (exit && readMessage.length() == 0) {
+
+            return null;
+        }
+
+        return readMessage.toString();
     }
 }
