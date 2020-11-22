@@ -19,7 +19,7 @@ public class Ejercicio2 {
 
     public static void main(String[] args) {
 
-//        apartado1();
+        apartado1();
 //        apartado2();
 //        apartado3();
 //        apartado4();
@@ -28,16 +28,74 @@ public class Ejercicio2 {
 //        apartado6();
 //        apartado7();
 //        apartado8();
-        apartado9();
+//        apartado9();
     }
 
     public static void apartado1() {
 
-        long timeWithBufferedReader = readWithBufferedReader();
-        long timeWithFileReader = readWithFileReader();
+        final int SAMPLE_SPACE = 10;
 
-        System.out.println("\n\nTiempo usando buffer: " + timeWithBufferedReader + " nanosegundos");
-        System.out.println("Tiempo sin usar buffer: " + timeWithFileReader + " nanosegundos");
+        // TEST WITH FILEREADER
+
+        long[] timeWithFileReaderArray = new long[SAMPLE_SPACE];
+        long timeWithFileReader = 0;
+        for (int i = 0; i < timeWithFileReaderArray.length; i++) {
+
+            timeWithFileReaderArray[i] = readWithFileReader();
+            timeWithFileReader += timeWithFileReaderArray[i];
+        }
+        timeWithFileReader /= SAMPLE_SPACE;
+
+
+        // TEST WITH BUFFEREDREADER
+
+        long[] timeWithBufferedReaderArray = new long[SAMPLE_SPACE];
+        long timeWithBufferedReader = 0;
+        for (int i = 0; i < timeWithBufferedReaderArray.length; i++) {
+
+            timeWithBufferedReaderArray[i] = readWithBufferedReader();
+            timeWithBufferedReader += timeWithBufferedReaderArray[i];
+        }
+        timeWithBufferedReader /= SAMPLE_SPACE;
+
+
+        // TEST WITH FILEREADER ONLY ONE HD ACCESS
+
+        long[] timeWithFileReaderOnlyOneHDAccessArray = new long[SAMPLE_SPACE];
+        long timeWithFileReaderOnlyOneHDAccess = 0;
+        for (int i = 0; i < timeWithFileReaderOnlyOneHDAccessArray.length; i++) {
+
+            timeWithFileReaderOnlyOneHDAccessArray[i] = readWithFileReaderOnlyOneHDAccess();
+            timeWithFileReaderOnlyOneHDAccess += timeWithFileReaderOnlyOneHDAccessArray[i];
+        }
+        timeWithFileReaderOnlyOneHDAccess /= SAMPLE_SPACE;
+
+
+        // PRINT RESULTS
+
+        System.out.println("\n");
+        System.out.println("FileReader - read()");
+        for (int i = 0; i < SAMPLE_SPACE; i++) {
+
+            System.out.println("Ejecución " + (i+1) + ": " + String.format("%,d", timeWithFileReaderArray[i]) + " nanosegundos");
+        }
+        System.out.println("TIEMPO MEDIO: " + String.format("%,d", timeWithFileReader) + " nanosegundos\n");
+
+        System.out.println("BufferedReader - readLine()");
+        for (int i = 0; i < SAMPLE_SPACE; i++) {
+
+            System.out.println("Ejecución " + (i+1) + ": " + String.format("%,d", timeWithBufferedReaderArray[i]) + " nanosegundos");
+        }
+        System.out.println("TIEMPO MEDIO: " + String.format("%,d", timeWithBufferedReader) + " nanosegundos\n");
+
+        System.out.println("FileReader - read(char[] buffer)");
+        for (int i = 0; i < SAMPLE_SPACE; i++) {
+
+            System.out.println("Ejecución " + (i+1) + ": " + String.format("%,d", timeWithFileReaderOnlyOneHDAccessArray[i]) + " nanosegundos");
+        }
+        System.out.println("TIEMPO MEDIO: " + String.format("%,d", timeWithFileReaderOnlyOneHDAccess) + " nanosegundos\n");
+
+
         System.out.println("FileReader tarda unas " + ((double) timeWithFileReader / timeWithBufferedReader) + " veces más que BufferedReader");
     }
 
@@ -86,6 +144,35 @@ public class Ejercicio2 {
 
                 System.out.print((char) i);
             }
+
+            fileReader.close();
+
+        } catch (FileNotFoundException e) {
+
+            e.printStackTrace();
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+        }
+
+        long stopTime = System.nanoTime();
+
+        return (stopTime - startTime);
+    }
+
+    public static long readWithFileReaderOnlyOneHDAccess() {
+
+        long startTime = System.nanoTime();
+
+        try {
+
+            File file = new File(".\\input\\quijote.txt");
+            FileReader fileReader = new FileReader(file);
+
+            char[] buffer = new char[1_040_581];
+            fileReader.read(buffer);
+            System.out.println(new String(buffer));
 
             fileReader.close();
 
