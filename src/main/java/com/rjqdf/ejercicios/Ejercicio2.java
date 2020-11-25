@@ -116,10 +116,6 @@ public class Ejercicio2 {
 
             bufferedReader.close();
 
-        } catch (FileNotFoundException e) {
-
-            e.printStackTrace();
-
         } catch (IOException e) {
 
             e.printStackTrace();
@@ -147,10 +143,6 @@ public class Ejercicio2 {
 
             fileReader.close();
 
-        } catch (FileNotFoundException e) {
-
-            e.printStackTrace();
-
         } catch (IOException e) {
 
             e.printStackTrace();
@@ -175,10 +167,6 @@ public class Ejercicio2 {
             System.out.println(new String(buffer));
 
             fileReader.close();
-
-        } catch (FileNotFoundException e) {
-
-            e.printStackTrace();
 
         } catch (IOException e) {
 
@@ -218,10 +206,6 @@ public class Ejercicio2 {
 
             System.out.println("El número de caracteres es: " + numberOfCharacters);
             System.out.println("El tamaño en bytes de todos los caracteres es: " + sizeInBytes);
-
-        } catch (FileNotFoundException e) {
-
-            e.printStackTrace();
 
         } catch (IOException e) {
 
@@ -353,10 +337,6 @@ public class Ejercicio2 {
             System.out.println("\tCarácter ” = " + closeQuotationMark);
             System.out.println("\tCarácter ̀  = " + anotherTilde);
 
-        } catch (FileNotFoundException e) {
-
-            e.printStackTrace();
-
         } catch (IOException e) {
 
             e.printStackTrace();
@@ -390,10 +370,6 @@ public class Ejercicio2 {
 
             System.out.println("El fichero adjunto contiene " + numberOfUppercaseLetters + " caracteres en mayúscula");
 
-        } catch (FileNotFoundException e) {
-
-            e.printStackTrace();
-
         } catch (IOException e) {
 
             e.printStackTrace();
@@ -419,10 +395,6 @@ public class Ejercicio2 {
             bufferedReader.close();
 
             System.out.println("El fichero adjunto contiene " + numberOfWords + " palabras");
-
-        } catch (FileNotFoundException e) {
-
-            e.printStackTrace();
 
         } catch (IOException e) {
 
@@ -500,10 +472,6 @@ public class Ejercicio2 {
 
             stopTime = System.nanoTime();
 
-        } catch (FileNotFoundException e) {
-
-            e.printStackTrace();
-
         } catch (IOException e) {
 
             e.printStackTrace();
@@ -539,10 +507,6 @@ public class Ejercicio2 {
             fileWriter.close();
 
             stopTime = System.nanoTime();
-
-        } catch (FileNotFoundException e) {
-
-            e.printStackTrace();
 
         } catch (IOException e) {
 
@@ -600,10 +564,6 @@ public class Ejercicio2 {
 
             stopTime = System.nanoTime();
 
-        } catch (FileNotFoundException e) {
-
-            e.printStackTrace();
-
         } catch (IOException e) {
 
             e.printStackTrace();
@@ -660,10 +620,6 @@ public class Ejercicio2 {
 
             stopTime = System.nanoTime();
 
-        } catch (FileNotFoundException e) {
-
-            e.printStackTrace();
-
         } catch (IOException e) {
 
             e.printStackTrace();
@@ -696,10 +652,6 @@ public class Ejercicio2 {
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(outputFile));
             bufferedWriter.write(fileContent.reverse().toString());
             bufferedWriter.close();
-
-        } catch (FileNotFoundException e) {
-
-            e.printStackTrace();
 
         } catch (IOException e) {
 
@@ -741,10 +693,6 @@ public class Ejercicio2 {
             bufferedWriter.write(fileContent.toString());
             bufferedWriter.close();
 
-        } catch (FileNotFoundException e) {
-
-            e.printStackTrace();
-
         } catch (IOException e) {
 
             e.printStackTrace();
@@ -772,10 +720,6 @@ public class Ejercicio2 {
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(outputFile));
             bufferedWriter.write(WordUtils.capitalize(fileContent.toString()));
             bufferedWriter.close();
-
-        } catch (FileNotFoundException e) {
-
-            e.printStackTrace();
 
         } catch (IOException e) {
 

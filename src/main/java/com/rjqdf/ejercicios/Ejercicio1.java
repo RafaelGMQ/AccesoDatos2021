@@ -3,7 +3,6 @@ package com.rjqdf.ejercicios;
 import org.apache.commons.text.WordUtils;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -46,10 +45,6 @@ public class Ejercicio1 {
 
             System.out.println(readMessage);
 
-        } catch (FileNotFoundException e) {
-
-            e.printStackTrace();
-
         } catch (IOException e) {
 
             e.printStackTrace();
@@ -73,10 +68,6 @@ public class Ejercicio1 {
             fileReader.close();
 
             System.out.println("El fichero adjunto contiene " + readMessage.length() + " caracteres");
-
-        } catch (FileNotFoundException e) {
-
-            e.printStackTrace();
 
         } catch (IOException e) {
 
@@ -113,10 +104,6 @@ public class Ejercicio1 {
 
             System.out.println("El fichero adjunto contiene " + readMessage.length() + " caracteres con tilde");
 
-        } catch (FileNotFoundException e) {
-
-            e.printStackTrace();
-
         } catch (IOException e) {
 
             e.printStackTrace();
@@ -144,10 +131,6 @@ public class Ejercicio1 {
 
             System.out.println("El fichero adjunto contiene " + readMessage.length() + " caracteres en mayúscula");
 
-        } catch (FileNotFoundException e) {
-
-            e.printStackTrace();
-
         } catch (IOException e) {
 
             e.printStackTrace();
@@ -172,21 +155,17 @@ public class Ejercicio1 {
 
             String[] words = readMessage.toString().split(" ");
             int numberOfWords = 0;
-            for (int j = 0; j < words.length; j++) {
+            for (String word : words) {
 
 //                System.out.println(words[j]);
 
-                if (words[j].length() > 0) {
+                if (word.length() > 0) {
 
                     numberOfWords++;
                 }
             }
 
             System.out.println("El fichero adjunto contiene " + numberOfWords + " palabras");
-
-        } catch (FileNotFoundException e) {
-
-            e.printStackTrace();
 
         } catch (IOException e) {
 
@@ -247,10 +226,6 @@ public class Ejercicio1 {
 
             fileWriter.close();
 
-        } catch (FileNotFoundException e) {
-
-            e.printStackTrace();
-
         } catch (IOException e) {
 
             e.printStackTrace();
@@ -281,10 +256,6 @@ public class Ejercicio1 {
             fileWriter.write(reverseMessage.toString());
 
             fileWriter.close();
-
-        } catch (FileNotFoundException e) {
-
-            e.printStackTrace();
 
         } catch (IOException e) {
 
@@ -324,10 +295,6 @@ public class Ejercicio1 {
 
             fileWriter.close();
 
-        } catch (FileNotFoundException e) {
-
-            e.printStackTrace();
-
         } catch (IOException e) {
 
             e.printStackTrace();
@@ -353,13 +320,13 @@ public class Ejercicio1 {
             String[] words = readMessage.toString().split(" ");
 
             StringBuilder readMessageUppercase = new StringBuilder();
-            for (int j = 0; j < words.length; j++) {
+            for (String word : words) {
 
-                if (words[j].length() > 0) {
+                if (word.length() > 0) {
 
                     // Uppercase first letter of each word
-                    readMessageUppercase.append(words[j].substring(0, 1).toUpperCase());
-                    readMessageUppercase.append(words[j].substring(1));
+                    readMessageUppercase.append(word.substring(0, 1).toUpperCase());
+                    readMessageUppercase.append(word.substring(1));
                 }
                 readMessageUppercase.append(" ");
             }
@@ -370,10 +337,6 @@ public class Ejercicio1 {
             fileWriter.write(readMessageUppercase.toString());
 
             fileWriter.close();
-
-        } catch (FileNotFoundException e) {
-
-            e.printStackTrace();
 
         } catch (IOException e) {
 
@@ -403,10 +366,6 @@ public class Ejercicio1 {
             fileWriter.write(WordUtils.capitalize(readMessage.toString()));
 
             fileWriter.close();
-
-        } catch (FileNotFoundException e) {
-
-            e.printStackTrace();
 
         } catch (IOException e) {
 
@@ -445,10 +404,6 @@ public class Ejercicio1 {
 
             fileWriter.close();
 
-        } catch (FileNotFoundException e) {
-
-            e.printStackTrace();
-
         } catch (IOException e) {
 
             e.printStackTrace();
@@ -466,10 +421,6 @@ public class Ejercicio1 {
             while ((message = readParagraph(fileReader)) != null){
                 System.out.println(message);
             }
-
-        } catch (FileNotFoundException e) {
-
-            e.printStackTrace();
 
         } catch (IOException e) {
 
