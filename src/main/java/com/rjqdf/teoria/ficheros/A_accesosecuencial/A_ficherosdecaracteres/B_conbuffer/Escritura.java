@@ -20,6 +20,8 @@ public class Escritura {
 
             bufferedWriter.write(messageToWrite);
 
+            bufferedWriter.flush();
+
             bufferedWriter.close();
 
         } catch (IOException e) {
@@ -28,4 +30,3 @@ public class Escritura {
         }
     }
 }
-
