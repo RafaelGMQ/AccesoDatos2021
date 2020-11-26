@@ -1,5 +1,6 @@
 package com.rjqdf.ejercicios.ejercicio3;
 
+import java.io.File;
 import java.io.IOException;
 
 public class PropertiesTest {
@@ -7,6 +8,8 @@ public class PropertiesTest {
     public static void main(String[] args) {
 
         try {
+
+            new File("output").mkdir();
 
             Properties configurationFile = new Properties(".\\output\\configuration.props");
 

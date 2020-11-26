@@ -19,6 +19,8 @@ public class Ejercicio2 {
 
     public static void main(String[] args) {
 
+        new File("output").mkdir();
+
         apartado1();
 //        apartado2();
 //        apartado3();
