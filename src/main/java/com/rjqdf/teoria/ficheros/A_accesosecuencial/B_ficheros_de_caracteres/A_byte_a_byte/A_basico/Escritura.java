@@ -20,6 +20,8 @@ public class Escritura {
 
             outputStreamWriter.write(messageToWrite);
 
+            outputStreamWriter.flush();
+
             outputStreamWriter.close();
 
         } catch (IOException e) {
