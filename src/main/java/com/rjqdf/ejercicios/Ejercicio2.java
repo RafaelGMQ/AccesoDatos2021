@@ -300,7 +300,6 @@ public class Ejercicio2 {
                         } else if ( currentChar ==  768 ) {
 
                             anotherTilde++;
-                            System.out.println(message);
 
                         } else {
 
