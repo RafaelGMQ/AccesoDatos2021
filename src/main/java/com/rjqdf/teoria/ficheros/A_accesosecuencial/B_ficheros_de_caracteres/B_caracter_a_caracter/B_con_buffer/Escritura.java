@@ -1,4 +1,4 @@
-package com.rjqdf.teoria.ficheros.A_accesosecuencial.A_ficherosdecaracteres.B_conbuffer;
+package com.rjqdf.teoria.ficheros.A_accesosecuencial.B_ficheros_de_caracteres.B_caracter_a_caracter.B_con_buffer;
 
 import java.io.BufferedWriter;
 import java.io.File;

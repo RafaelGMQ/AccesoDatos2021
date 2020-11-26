@@ -1,6 +1,5 @@
-package com.rjqdf.teoria.ficheros.A_accesosecuencial.A_ficherosdecaracteres.B_conbuffer;
+package com.rjqdf.teoria.ficheros.A_accesosecuencial.B_ficheros_de_caracteres.B_caracter_a_caracter.A_basico;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -13,12 +12,15 @@ public class Lectura {
 
             File file = new File(".\\input\\input.txt");
             FileReader fileReader = new FileReader(file);
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-            //BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
 
-            String readMessage = bufferedReader.readLine();
+            int i;
+            StringBuilder readMessage = new StringBuilder();
+            while ((i = fileReader.read()) != -1) {
 
-            bufferedReader.close();
+                readMessage.append((char) i);
+            }
+
+            fileReader.close();
 
             System.out.println(readMessage);
 
