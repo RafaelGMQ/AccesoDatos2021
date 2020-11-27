@@ -1,4 +1,4 @@
-package com.rjqdf.teoria.ficheros.A_accesosecuencial.A_ficheros_binarios.A_basico;
+package com.rjqdf.teoria.ficheros.A_acceso_secuencial.A_ficheros_binarios.A_basico;
 
 import java.io.File;
 import java.io.FileOutputStream;

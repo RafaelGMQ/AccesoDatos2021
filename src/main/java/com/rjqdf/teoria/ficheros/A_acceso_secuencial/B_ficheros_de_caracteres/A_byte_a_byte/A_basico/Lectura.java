@@ -1,4 +1,4 @@
-package com.rjqdf.teoria.ficheros.A_accesosecuencial.B_ficheros_de_caracteres.A_byte_a_byte.A_basico;
+package com.rjqdf.teoria.ficheros.A_acceso_secuencial.B_ficheros_de_caracteres.A_byte_a_byte.A_basico;
 
 import java.io.File;
 import java.io.FileInputStream;

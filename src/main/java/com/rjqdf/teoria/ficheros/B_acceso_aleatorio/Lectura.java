@@ -1,4 +1,4 @@
-package com.rjqdf.teoria.ficheros.B_accesoaleatorio;
+package com.rjqdf.teoria.ficheros.B_acceso_aleatorio;
 
 import java.io.File;
 import java.io.IOException;
