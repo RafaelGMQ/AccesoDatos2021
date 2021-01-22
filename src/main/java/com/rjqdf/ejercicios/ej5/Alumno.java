@@ -1,6 +1,4 @@
-package com.rjqdf.ejercicios.ejercicio5;
-
-import java.util.Date;
+package com.rjqdf.ejercicios.ej5;
 
 public class Alumno {
 

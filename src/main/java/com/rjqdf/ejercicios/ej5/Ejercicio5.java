@@ -1,4 +1,4 @@
-package com.rjqdf.ejercicios.ejercicio5;
+package com.rjqdf.ejercicios.ej5;
 
 import java.io.*;
 import java.text.ParseException;
@@ -148,11 +148,11 @@ public class Ejercicio5 {
 
         List<Alumno> listaAlumnos = apartado2();
 
-        File directorioDam = new File("output\\ejercicio5\\DAM\\nombres");
+        File directorioDam = new File("output\\ej5\\DAM\\nombres");
         directorioDam.mkdirs();
-        File directorioAsir = new File("output\\ejercicio5\\ASIR\\nombres");
+        File directorioAsir = new File("output\\ej5\\ASIR\\nombres");
         directorioAsir.mkdirs();
-        File directorioSmr = new File("output\\ejercicio5\\SMR\\nombres");
+        File directorioSmr = new File("output\\ej5\\SMR\\nombres");
         directorioSmr.mkdirs();
 
 
@@ -161,7 +161,7 @@ public class Ejercicio5 {
             try {
 
                 String fileName = a.getApellidos() + ", " + a.getNombre() + ".txt";
-                File file = new File(".\\output\\ejercicio5\\" + a.getGrupo() + "\\nombres\\" + fileName);
+                File file = new File(".\\output\\ej5\\" + a.getGrupo() + "\\nombres\\" + fileName);
                 BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));
 
                 bufferedWriter.write(a.toTxt());
@@ -179,11 +179,11 @@ public class Ejercicio5 {
 
         List<Alumno> listaAlumnos = apartado2();
 
-        File directorioDam = new File("output\\ejercicio5\\DAM\\ids");
+        File directorioDam = new File("output\\ej5\\DAM\\ids");
         directorioDam.mkdirs();
-        File directorioAsir = new File("output\\ejercicio5\\ASIR\\ids");
+        File directorioAsir = new File("output\\ej5\\ASIR\\ids");
         directorioAsir.mkdirs();
-        File directorioSmr = new File("output\\ejercicio5\\SMR\\ids");
+        File directorioSmr = new File("output\\ej5\\SMR\\ids");
         directorioSmr.mkdirs();
 
 
@@ -192,7 +192,7 @@ public class Ejercicio5 {
             try {
 
                 String fileName = a.getId() + ".txt";
-                File file = new File(".\\output\\ejercicio5\\" + a.getGrupo() + "\\ids\\" + fileName);
+                File file = new File(".\\output\\ej5\\" + a.getGrupo() + "\\ids\\" + fileName);
                 BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));
 
                 bufferedWriter.write(a.toTxt());

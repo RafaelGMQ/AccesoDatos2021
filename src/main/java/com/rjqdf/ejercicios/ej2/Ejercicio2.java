@@ -1,4 +1,4 @@
-package com.rjqdf.ejercicios;
+package com.rjqdf.ejercicios.ej2;
 
 import org.apache.commons.text.WordUtils;
 

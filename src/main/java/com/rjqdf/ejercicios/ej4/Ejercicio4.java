@@ -1,4 +1,4 @@
-package com.rjqdf.ejercicios;
+package com.rjqdf.ejercicios.ej4;
 
 import javazoom.jl.player.Player;
 

@@ -1,4 +1,4 @@
-package com.rjqdf.ejercicios;
+package com.rjqdf.ejercicios.ej0;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

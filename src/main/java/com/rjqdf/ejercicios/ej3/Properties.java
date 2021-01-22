@@ -1,4 +1,4 @@
-package com.rjqdf.ejercicios.ejercicio3;
+package com.rjqdf.ejercicios.ej3;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
