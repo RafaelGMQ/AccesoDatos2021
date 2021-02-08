@@ -38,11 +38,13 @@ public class Lectura {
             document.getDocumentElement().normalize();
             
             // Recorrer el DOM
-            NodeList listaNodosAlumno = document.getElementsByTagName("alumno");
+            Element root = document.getDocumentElement();
+            NodeList childs = root.getChildNodes();
+//            NodeList childs = document.getElementsByTagName("alumno");
             
-            for(int i = 0; i < listaNodosAlumno.getLength(); i++) {
+            for(int i = 0; i < childs.getLength(); i++) {
             	
-            	Node node = listaNodosAlumno.item(i);
+            	Node node = childs.item(i);
             	
             	if (node.getNodeType() == Node.ELEMENT_NODE) {
             		
@@ -50,7 +52,11 @@ public class Lectura {
             		
             		System.out.print(element.getAttribute("id") + " - ");
             		System.out.println(element.getElementsByTagName("nombre").item(0).getTextContent());
-            	}
+
+            	} else { // Nodos '#text'
+
+//                    System.out.println(node.getNodeName());
+                }
             }
             
             
