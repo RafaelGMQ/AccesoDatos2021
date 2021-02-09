@@ -39,12 +39,12 @@ public class Lectura {
             
             // Recorrer el DOM
             Element root = document.getDocumentElement();
-            NodeList childs = root.getChildNodes();
-//            NodeList childs = document.getElementsByTagName("alumno");
+            NodeList children = root.getChildNodes();
+//            NodeList children = document.getElementsByTagName("alumno");
             
-            for(int i = 0; i < childs.getLength(); i++) {
+            for(int i = 0; i < children.getLength(); i++) {
             	
-            	Node node = childs.item(i);
+            	Node node = children.item(i);
             	
             	if (node.getNodeType() == Node.ELEMENT_NODE) {
             		
