@@ -34,7 +34,7 @@ public class Lectura {
             Validator validator = schema.newValidator();
             validator.validate(new DOMSource(document));
             
-            // OPCIONAL: normalizar el fichero para eliminar nodos vacíos y combinar los adyacentes en caso de que los haya
+            // OPCIONAL: normalizar el fichero para eliminar nodos texto vacíos y combinar los adyacentes en caso de que los haya
             document.getDocumentElement().normalize();
             
             // Recorrer el DOM
