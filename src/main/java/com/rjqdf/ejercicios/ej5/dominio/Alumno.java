@@ -1,4 +1,4 @@
-package com.rjqdf.ejercicios.ej5;
+package com.rjqdf.ejercicios.ej5.dominio;
 
 public class Alumno {
 

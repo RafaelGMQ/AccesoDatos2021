@@ -1,5 +1,7 @@
 package com.rjqdf.ejercicios.ej5;
 
+import com.rjqdf.ejercicios.ej5.dominio.Alumno;
+
 import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
